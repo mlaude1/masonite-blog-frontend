@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa'
 
 const SingleBlog = ({ blogs, edit, deleteBlog }) => {
   // get the params from the url
@@ -10,24 +11,15 @@ const SingleBlog = ({ blogs, edit, deleteBlog }) => {
   const blog = blogs.find((p) => p.id === id)
   // console.log(blog)
 
-  ////////////////////
-  // Style Object
-  /////////////////////
-  const div = {
-    textAlign: "center",
-    border: "3px solid green",
-    width: "80%",
-    margin: "30px auto"
-  }
 
-  return <div style={div}>
-    <h1>{blog?.title}</h1>
+  return <div className="single-blog">
+    <h1>On this day: <span className="date">{blog?.title}</span></h1>
     <h2>{blog?.body}</h2>
-    <button onClick={() => deleteBlog(blog)}>Delete</button>
-    <button onClick={() => edit(blog)}>Edit</button>
     <Link to="/">
-      <button>Go back</button>
+      <button class="back-btn"><FaArrowLeft className="arrow-icon" /></button>
     </Link>
+    <button class="edit=btn" onClick={() => edit(blog)}>Edit</button>
+    <button class="delete-btn" onClick={() => deleteBlog(blog)}>Delete</button>
   </div>
 }
 

@@ -23,7 +23,8 @@ const Form = ({ initialBlog, handleSubmit, buttonLabel }) => {
     navigate("/")
   }
 
-  return <form onSubmit={handleSubmission}>
+  return <form onSubmit={handleSubmission} className="form">
+    <h1>How was your day?</h1>
     <input
       type="text"
       onChange={handleChange}

@@ -1,9 +1,15 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Kurale&family=Patrick+Hand&family=Shalimar&display=swap');
 
 // =========================
 // Variables
 // =========================
+$black: #282828;
+$charcoal: #495057;
 $grey: #d9d9d9;
+$emerald: #34a0a4;
+$green: #52b69a;
+$lighter-green: #76c893;
+
 
 // =========================
 // Mixins
@@ -13,14 +19,11 @@ $grey: #d9d9d9;
   font-weight: 400;
 }
 
-
 // =========================
 // Body/Main Styles
 // =========================
 * {
   box-sizing: border-box;
-  margin: 0;
-  // padding: 0;
   transition: 150ms;
 }
 
@@ -29,73 +32,134 @@ body {
 }
 
 // =========================
-// Header
-// =========================
-nav {
-  display: flex;
-  // justify-content: center;
-  background-color: $grey;
-  padding: 15px;
-
-  .logo {
-    display: flex;
-    margin-left: 30px;
-
-    img {
-      height: 2.5em;
-      position: relative;
-    }
-    h1 {
-      position: relative;
-      top: 8px;
-      left: 10px;
-      font-weight: 400;
-    }
-  }
-}
-
-// =========================
 // Title
 // =========================
 .title {
-  border: 2px dashed orange;
   margin: 60px 0 0 80px;
   width: max-content;
+  text-decoration: none;
 
   h1 {
     @include body-font();
-    font-size: 30px;
+    font-size: 40px;
+    color: black;
   }
+    h1:hover {
+      color: white;
+      text-shadow: 1px 1px 2px black, 0 0 25px $emerald, 0 0 5px $green;
+    }
   h2 {
     @include body-font();
     font-size: 16px;
     color: #4a4a4a;
     margin-top: 10px;
-  }
-  img {
-    height: 3em;
-    position: absolute;
-    // left: 3em;
+    text-align: center;
   }
 }
 
+// =========================
+// Blogs (Index)
+// =========================
+.blogs {
+  text-align: center;
+  border: 2.5px solid;
+  margin: 25px auto;
+  width: 80%;
+  border-radius: 6px;
+
+  a {
+    text-decoration: none;
+    color: $green;
+  }
+  h2 {
+    color: $charcoal;
+    font-weight: 350;
+  }
+}
+  .blogs:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+    transform: translateY(-10px);
+  }
+
+// =========================
+// Blogs (Single)
+// =========================
+  .single-blog {
+    text-align: center;
+    border: 3px solid $charcoal;
+    border-radius: 4px;
+    width: 80%;
+    margin: 30px auto;
+    padding: 50px;
+    box-shadow: 10px 10px $lighter-green;
+
+    h1 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 3em;
+
+      .date {
+        color: $lighter-green;
+      }
+
+    }
+    h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 3em;
+    }
+
+    button {
+      margin: 0 15px;
+      padding: 20px 40px;
+      border: none;
+    }
+      button:hover {
+        cursor: pointer;
+        background-color: $lighter-green;
+      }
+
+    .delete-btn:hover {
+      background-color: rgb(255, 53, 53);
+      color: white;
+    }
+  }
 
 // =========================
 // Form
 // =========================
 .form {
-  border: 2px dashed green;
+  border: 2px dashed $grey;
   width: fit-content;
-  padding: 35px 50px;
-  margin: 25px;
+  padding: 40px 60px;
+  margin: 5em auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
   h1 {
-    border: 2px dashed blue;
     @include body-font();
     margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 200;
   }
-  form {
-    display: flex;
-    flex-direction: column;
+  input {
+    color: #434343;
+    // border-radius: 2px;
+    margin: 10px;
+    padding: 20px;
   }
+    input:focus {
+      border: 2px solid $green;
+      outline: none;
+      transition: none;
+    }
+  input[type="submit"] {
+    cursor: pointer;
+    background-color: $green;
+    color: white;
+    border: none;
+    margin-top: 25px;
+  }
+    input[type="submit"]:hover {
+      background-color: $lighter-green;
+    }
 }

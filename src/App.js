@@ -1,6 +1,4 @@
 // Import Components
-import Home from './pages/Home';
-
 import AllBlogs from './pages/AllBlogs';
 import SingleBlog from './pages/SingleBlog';
 import Form from './pages/Form';
@@ -16,14 +14,16 @@ import { Route, Routes, Link, useNavigate } from "react-router-dom"
 ////////////////////////
 const h1 = {
   textAlign: "center",
-  margin: "10px"
+  margin: "10px",
 };
 
 const button = {
-  backgroundColor: "navy",
+  backgroundColor: "#282828",
   color: "white",
   display: "block",
-  margin: "auto"
+  margin: "3em auto",
+  borderRadius: "2px",
+  padding: "15px 45px",
 }
 
 
@@ -114,8 +114,11 @@ function App() {
   
   return (
     <div className="App">
-       <h1 style={h1}>My Blogs</h1>
-       <Link to="/new"><button style={button}>Create New Blog</button></Link>
+      <Link to="/" className="title">
+        <h1 style={h1}>Time Machine</h1>
+        <h2>Capture a moment in time</h2>
+      </Link>
+      <Link to="/new" className="new-link"><button style={button}>ADD ENTRY</button></Link>
       <Routes>
         <Route path="/" element={<AllBlogs blogs={blogs}/>}/>
         <Route path="/blog/:id" element={<SingleBlog blogs={blogs}
@@ -125,12 +128,12 @@ function App() {
         <Route path="/new" element={<Form
           initialBlog={nullBlog}
           handleSubmit={addBlogs}
-          buttonLabel="Create Blog"
+          buttonLabel="POST"
         />}/>
         <Route path="/edit" element={<Form
           initialBlog={targetBlog}
           handleSubmit={updateBlog}
-          buttonLabel="Update Entry"
+          buttonLabel="UPDATE"
         />}/>
       </Routes>
 
